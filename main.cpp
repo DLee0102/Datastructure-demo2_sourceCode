@@ -4,6 +4,7 @@
 #include<stdio.h>
 
 #include"char_code.h"
+#include"Huffmanbuild.cpp"
 
 #define NUMBER 128
 using namespace std;
@@ -25,12 +26,13 @@ int main(){
     int w[NUMBER];
 
     char option;
+    cout << "请选择要进行的操作：" << endl;
     cin >> option;
     while (option != '0') {
         switch(option) {
             case '1':
                 cout << "Running option 1..." << endl;
-                Stat(s,w,n);
+                char_code();
                 // char_code;
                 cout << "Complete." << endl;
                 break;
@@ -48,6 +50,7 @@ int main(){
                 break;
             
         }
+        cout << "请选择要进行的操作：" << endl;
         cin >> option;
     }
 
