@@ -2,7 +2,10 @@
 #include"HuffTree.cpp" 
 #include<String.h> 
 #include<fstream>
-char** codeList = new char* [20];
+#include<unordered_map>
+
+extern unordered_map<char,string> huffmanCodes;
+char** codeList = new char* [100];
 int count = 0;
 
 /**
@@ -62,7 +65,7 @@ void HuffmanCode(HuffNode<char> *ht1,char * code,int length)
     		//关闭文件
     		ofs.close();
 		}
-
+		huffmanCodes[ht1temp->val()->val()] = codeList[count];
 		printf("%c,%d, %s\n",ht1temp->val()->val(),ht1temp->weight(),codeList[count]);
 		//ht1temp->val()->val(),
 		++count;
@@ -123,4 +126,4 @@ void HuffmanCode(HuffNode<char> *ht1,char * code,int length)
 		stack_count = 1;
 		count = 0;
 	}
-} 
+}

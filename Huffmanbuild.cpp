@@ -10,12 +10,16 @@
 //4.模板类必须包含cpp文件
 //5.函数声明用了模板，实现时忘记
 
+extern char filename[50];
+extern HuffTree<char>* statictree;
+
 using namespace std;
 void  Stat(char *s,int *w,int &num);
 //template <class Elem>
 HuffTree<char>* HuffmanBuild(char *s,int *w,int num);
 
 void char_code() {
+
     int n = 0;
     char s[NUMBER];
     int w[NUMBER];
@@ -28,10 +32,11 @@ void char_code() {
 //    undefined reference to `HuffTree<char>* HuffmanBuild<char>(char*, int*, int)'
     HuffTree<char> *tree;
     tree = HuffmanBuild(s, w, n);
+    statictree = tree;
 
     char* m = new char[1];
     HuffmanCode(tree->root(), m, 1);
-    //tree->print();
+    // tree->print();
 
 //    return 0;
 //    int *a;
@@ -55,7 +60,7 @@ void char_code() {
 
 void  Stat(char *s,int *w,int &num){
     cout<<"please enter the file's name:\n";
-    char filename[50];
+    
     char c;
 
     /**

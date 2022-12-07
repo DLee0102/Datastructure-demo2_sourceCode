@@ -3,12 +3,17 @@
 #include<fstream>
 #include<stdio.h>
 
+#include <unordered_map>
 #include"char_code.h"
 #include"Huffmanbuild.cpp"
+#include"huffcompress_decom.cpp"
 
 #define NUMBER 128
 using namespace std;
 
+unordered_map<char,string> huffmanCodes;
+char filename[50];
+HuffTree<char>* statictree;
 
 
 int main(){
@@ -38,12 +43,12 @@ int main(){
                 break;
             case '2':
                 cout << "Running option 2..." << endl;
-                //File_Code();
+                file_compress();
                 cout << "Complete." << endl;
                 break;
             case '3':
                 cout << "Runing option 3..." << endl;
-                //File_Decode();
+                file_reconstruct();
                 cout << "Complete." << endl;
                 break;
             case '0':

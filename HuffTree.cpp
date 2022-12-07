@@ -11,6 +11,8 @@ using namespace std;
 template<class Elem>
 void HuffTree<Elem>::printhelp(HuffNode<Elem>* subroot, int level)const{
     FreqPair<Elem>* s1;
+    
+
     if(subroot==NULL) {return;}
     if(subroot->isLeaf()) {
         for(int i=0;i<level;i++) {cout << "*";}
